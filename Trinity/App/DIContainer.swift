@@ -9,7 +9,7 @@ import Foundation
 
 final class DIContainer {
     @MainActor static func makeLoginViewController() -> LoginViewController {
-        let apiClient = DefaultAPIClient() 
+        let apiClient = DefaultAPIClient()
 
 //        let loginRepository = LoginRepository(apiClient: apiClient)
         let loginRepository = MockLoginRepository()
@@ -20,15 +20,17 @@ final class DIContainer {
     
     private let authRepository: AuthRepositoryProtocol
     
-    init(authRepository: AuthRepositoryProtocol = MockAuthRepository()) {
+    init(authRepository: AuthRepositoryProtocol = AuthRepository()) {
         self.authRepository = authRepository
     }
     
     func makeSignupPhoneAuthViewController() -> AuthViewController {
-        let useCase = SendPhoneNumberUseCase(repository: authRepository)
+        let repository = AuthRepository()
+        let useCase = SendPhoneNumberUseCase(repository: repository)
         let viewModel = AuthViewModel(sendPhoneNumberUseCase: useCase)
         return AuthViewController(viewModel: viewModel, diContainer: self)
     }
+
     
     func makeCodeVerificationViewController(phoneNumber: String) -> CodeVerificationViewController {
         // authrepository 주입 문제 ㅠ

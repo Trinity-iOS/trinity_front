@@ -68,12 +68,14 @@
 		2F8800462D310F8B00220F89 /* AuthRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8800452D310F8B00220F89 /* AuthRepositoryProtocol.swift */; };
 		2F8800482D310FAB00220F89 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8800472D310FAB00220F89 /* AuthRepository.swift */; };
 		2F88004A2D31104000220F89 /* CodeVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8800492D31104000220F89 /* CodeVerificationViewModel.swift */; };
-		2F88004C2D31116300220F89 /* MockAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F88004B2D31116300220F89 /* MockAuthRepository.swift */; };
 		2F88004E2D31198300220F89 /* CodeVerificationViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F88004D2D31198300220F89 /* CodeVerificationViewLayout.swift */; };
 		2F8800502D315F4900220F89 /* SignupBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F88004F2D315F4900220F89 /* SignupBaseView.swift */; };
 		2F8800522D316F8000220F89 /* OTPInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8800512D316F8000220F89 /* OTPInputView.swift */; };
 		2F8800542D31705700220F89 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8800532D31705700220F89 /* UIButton+.swift */; };
 		2F8800562D317F4500220F89 /* VefifyCodeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8800552D317F4500220F89 /* VefifyCodeUseCase.swift */; };
+		2FF08C4D2D5CA506006FBB01 /* AuthStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF08C4C2D5CA506006FBB01 /* AuthStatus.swift */; };
+		2FF08C502D5CA552006FBB01 /* PopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF08C4F2D5CA552006FBB01 /* PopupManager.swift */; };
+		2FF08C522D5CA571006FBB01 /* AuthViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF08C512D5CA571006FBB01 /* AuthViewLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,12 +156,14 @@
 		2F8800452D310F8B00220F89 /* AuthRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepositoryProtocol.swift; sourceTree = "<group>"; };
 		2F8800472D310FAB00220F89 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		2F8800492D31104000220F89 /* CodeVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationViewModel.swift; sourceTree = "<group>"; };
-		2F88004B2D31116300220F89 /* MockAuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthRepository.swift; sourceTree = "<group>"; };
 		2F88004D2D31198300220F89 /* CodeVerificationViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationViewLayout.swift; sourceTree = "<group>"; };
 		2F88004F2D315F4900220F89 /* SignupBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupBaseView.swift; sourceTree = "<group>"; };
 		2F8800512D316F8000220F89 /* OTPInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPInputView.swift; sourceTree = "<group>"; };
 		2F8800532D31705700220F89 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		2F8800552D317F4500220F89 /* VefifyCodeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VefifyCodeUseCase.swift; sourceTree = "<group>"; };
+		2FF08C4C2D5CA506006FBB01 /* AuthStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStatus.swift; sourceTree = "<group>"; };
+		2FF08C4F2D5CA552006FBB01 /* PopupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupManager.swift; sourceTree = "<group>"; };
+		2FF08C512D5CA571006FBB01 /* AuthViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -276,6 +280,7 @@
 				2F1B24DA2D0C442300EB96B2 /* Artwork.swift */,
 				2F1B24E62D0C45A300EB96B2 /* MockData.swift */,
 				2F88001E2D306F1100220F89 /* LoginResponse.swift */,
+				2FF08C4C2D5CA506006FBB01 /* AuthStatus.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -319,7 +324,6 @@
 				2F88000B2D305DF500220F89 /* LoginRepository.swift */,
 				2F8800202D307C1000220F89 /* MockLoginRepository.swift */,
 				2F8800472D310FAB00220F89 /* AuthRepository.swift */,
-				2F88004B2D31116300220F89 /* MockAuthRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -347,6 +351,7 @@
 		2F1B24AB2D0B8DEC00EB96B2 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				2FF08C4E2D5CA540006FBB01 /* Managers */,
 				2F1B24D42D0C2A6A00EB96B2 /* Utilities */,
 				2F1B24AC2D0B8DFD00EB96B2 /* Views */,
 				2F1B24AD2D0B8E0700EB96B2 /* ViewModels */,
@@ -400,10 +405,11 @@
 		2F1B24B02D0B8F2400EB96B2 /* Signup */ = {
 			isa = PBXGroup;
 			children = (
+				2F88004F2D315F4900220F89 /* SignupBaseView.swift */,
 				2F88001A2D306E0A00220F89 /* AuthViewController.swift */,
+				2FF08C512D5CA571006FBB01 /* AuthViewLayout.swift */,
 				2F8800412D31052F00220F89 /* CodeVerificationViewController.swift */,
 				2F88004D2D31198300220F89 /* CodeVerificationViewLayout.swift */,
-				2F88004F2D315F4900220F89 /* SignupBaseView.swift */,
 				2F8800512D316F8000220F89 /* OTPInputView.swift */,
 			);
 			path = Signup;
@@ -462,6 +468,14 @@
 				2F8800342D309A0D00220F89 /* Pretendard-SemiBold.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		2FF08C4E2D5CA540006FBB01 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				2FF08C4F2D5CA552006FBB01 /* PopupManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -643,6 +657,7 @@
 				2F8800502D315F4900220F89 /* SignupBaseView.swift in Sources */,
 				2F1B24DF2D0C446300EB96B2 /* MockArtworkRepository.swift in Sources */,
 				2F1B24DD2D0C445A00EB96B2 /* ArtworkRepository.swift in Sources */,
+				2FF08C4D2D5CA506006FBB01 /* AuthStatus.swift in Sources */,
 				2F1B24A02D0B8AA400EB96B2 /* UIColor+.swift in Sources */,
 				2F8800232D307CE900220F89 /* AuthViewModel.swift in Sources */,
 				2F88000E2D305E1300220F89 /* LoginViewModel.swift in Sources */,
@@ -659,12 +674,12 @@
 				2F1B24E92D0C46F100EB96B2 /* FetchArtworkUseCase.swift in Sources */,
 				2F88002B2D30976300220F89 /* UIView+.swift in Sources */,
 				2F88004A2D31104000220F89 /* CodeVerificationViewModel.swift in Sources */,
-				2F88004C2D31116300220F89 /* MockAuthRepository.swift in Sources */,
 				2F8800562D317F4500220F89 /* VefifyCodeUseCase.swift in Sources */,
 				2F88004E2D31198300220F89 /* CodeVerificationViewLayout.swift in Sources */,
 				2F8800102D305E4B00220F89 /* LoginViewController.swift in Sources */,
 				2F1B24D62D0C3F3700EB96B2 /* UIImage+.swift in Sources */,
 				2F1B24E72D0C45A300EB96B2 /* MockData.swift in Sources */,
+				2FF08C522D5CA571006FBB01 /* AuthViewLayout.swift in Sources */,
 				2F1B24EB2D0C472600EB96B2 /* HomeViewModel.swift in Sources */,
 				2F1B24F32D0C4AF800EB96B2 /* HomePageViewController.swift in Sources */,
 				2F1B24982D0B869D00EB96B2 /* SceneDelegate.swift in Sources */,
@@ -674,6 +689,7 @@
 				2F1B24D92D0C41A700EB96B2 /* HomeViewController.swift in Sources */,
 				2F1B24EF2D0C482100EB96B2 /* Observable.swift in Sources */,
 				2F8800462D310F8B00220F89 /* AuthRepositoryProtocol.swift in Sources */,
+				2FF08C502D5CA552006FBB01 /* PopupManager.swift in Sources */,
 				2F8800442D310F7A00220F89 /* SendPhoneNumberUseCase.swift in Sources */,
 				2F8800482D310FAB00220F89 /* AuthRepository.swift in Sources */,
 				2F8800172D306A9700220F89 /* ServerError.swift in Sources */,

@@ -11,12 +11,12 @@ import Combine
 
 class CodeVerificationViewController: UIViewController {
     
-    private let viewModel: CodeVerificationViewModel
     public let baseView = SignupBaseView()
+    private let viewModel: CodeVerificationViewModel
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Properties
-    private lazy var otpInputView: OTPInputView = {
+    lazy var otpInputView: OTPInputView = {
         let view = OTPInputView(frame: .zero)
         view.delegate = self
         return view
@@ -39,65 +39,87 @@ class CodeVerificationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        setLayout()
         bindViewModel()
-    }
-    
-    // MARK: - UI Setup
-    private func setupUI() {
-        baseView.configure(
-            title: "VERIFICATION\nCODE",
-            status: "Enter the 6-digit verification code\nsent to your phone.",
-            progress: 0.33,
-            buttonText: "Verify"
-        )
-        
-        baseView.continueButton.addTarget(self, action: #selector(continueTapped), for: .touchUpInside)
-        baseView.continueButton.updateAppearance(isEnabled: false)
-        
-        baseView.contentView.addSubview(otpInputView)
-        
-        otpInputView.snp.makeConstraints { make in
-            make.top.equalTo(baseView.statusLabel.snp.bottom).offset(24)
-            make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.8)
-            make.height.equalTo(50)
-        }
-    }
-    
-    // MARK: - Actions
-    @objc private func continueTapped() {
-        viewModel.verifyCode()
     }
     
     // MARK: - ViewModel Binding
     private func bindViewModel() {
-        viewModel.$isCodeValid
+        viewModel.statusPublisher
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] isValid in
-                self?.baseView.continueButton.updateAppearance(isEnabled: isValid)
+            .sink { [weak self] status in
+                self?.updateButtonUI(for: status)
             }
             .store(in: &cancellables)
-        
-        viewModel.$errorMessage
+
+        viewModel.errorMessagePublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] errorMessage in
                 guard let errorMessage = errorMessage else { return }
-                self?.showErrorAlert(message: errorMessage)
+                PopupManager.shared.showErrorAlert(errorMessage: errorMessage, on: self!)
             }
             .store(in: &cancellables)
+
+        viewModel.isVerifiedPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isVerified in
+                if isVerified {
+                    self?.navigateToSignupIdVC()
+                }
+            }
+            .store(in: &cancellables)
+
     }
     
-    private func showErrorAlert(message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
+    // MARK: - Actions
+    @objc func continueTapped() {
+        viewModel.verifyCode()
+    }
+    
+    // MARK: - Navigation
+    private func navigateToSignupIdVC() {
+        log("Move to SignupIdVC", level: .info)
+//        let codeVerificationVC = diContainer.makeCodeVerificationViewController(phoneNumber: phoneNumber)
+//        navigationController?.pushViewController(codeVerificationVC, animated: true)
+    }
+    
+    // MARK: - UI Helpers
+    private func updateButtonUI(for status: AuthStatus) {
+        let buttonTitle: String
+        let isEnabled: Bool
+
+        switch status {
+        case .idle:
+            buttonTitle = "Enter Code"
+            isEnabled = false
+        case .loading:
+            buttonTitle = "Verifying..."
+            isEnabled = false
+        case .success:
+            buttonTitle = "Complete!"
+            isEnabled = false
+        case .ready:
+            buttonTitle = "Continue"
+            isEnabled = true
+        case .failure:
+            buttonTitle = "Retry"
+            isEnabled = true
+        }
+
+        baseView.continueButton.setTitle(buttonTitle, for: .normal)
+        baseView.continueButton.isEnabled = isEnabled
+        updateButtonAppearance(button: baseView.continueButton)
+    }
+    
+    private func updateButtonAppearance(button: UIButton) {
+        button.backgroundColor = button.isEnabled ? .IFBlackSecondary : .IFIvory2
+        button.setTitleColor(button.isEnabled ? .IFIvory : .IFTextDis, for: .normal)
     }
 }
 
 // MARK: - OTPInputViewDelegate
 extension CodeVerificationViewController: OTPInputViewDelegate {
     func didEnterOTP(otp: String) {
-        viewModel.code = otp
+        viewModel.otpCode = otp
     }
 }

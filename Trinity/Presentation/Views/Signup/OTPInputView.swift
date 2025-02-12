@@ -17,7 +17,7 @@ class OTPInputView: UIView, UITextFieldDelegate {
     // MARK: - Properties
     weak var delegate: OTPInputViewDelegate?
     private let stackView = UIStackView()
-    private var textFields: [UITextField] = []
+    var textFields: [UITextField] = []
     private let numberOfDigits = 6
     private let defaultUnderlineColor = UIColor.gray
     private let activeUnderlineColor = UIColor.black
