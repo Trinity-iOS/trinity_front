@@ -12,7 +12,8 @@ import Combine
 class CodeVerificationViewController: UIViewController {
     
     public let baseView = SignupBaseView()
-    private let viewModel: CodeVerificationViewModel
+    private let viewModel: CodeVerificationViewModelProtocol
+    private let diContainer: DIContainer
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Properties
@@ -23,8 +24,9 @@ class CodeVerificationViewController: UIViewController {
     }()
     
     // MARK: - Initializer
-    init(viewModel: CodeVerificationViewModel) {
+    init(viewModel: CodeVerificationViewModelProtocol, diContainer: DIContainer) {
         self.viewModel = viewModel
+        self.diContainer = diContainer
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -79,8 +81,8 @@ class CodeVerificationViewController: UIViewController {
     // MARK: - Navigation
     private func navigateToSignupIdVC() {
         log("Move to SignupIdVC", level: .info)
-//        let codeVerificationVC = diContainer.makeCodeVerificationViewController(phoneNumber: phoneNumber)
-//        navigationController?.pushViewController(codeVerificationVC, animated: true)
+        let idVC = diContainer.makeIdViewController()
+        navigationController?.pushViewController(idVC, animated: true)
     }
     
     // MARK: - UI Helpers
@@ -90,7 +92,7 @@ class CodeVerificationViewController: UIViewController {
 
         switch status {
         case .idle:
-            buttonTitle = "Enter Code"
+            buttonTitle = "Continue"
             isEnabled = false
         case .loading:
             buttonTitle = "Verifying..."
@@ -120,6 +122,6 @@ class CodeVerificationViewController: UIViewController {
 // MARK: - OTPInputViewDelegate
 extension CodeVerificationViewController: OTPInputViewDelegate {
     func didEnterOTP(otp: String) {
-        viewModel.otpCode = otp
+        viewModel.updateOTP(otp)
     }
 }

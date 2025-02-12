@@ -73,6 +73,11 @@
 		2F8800522D316F8000220F89 /* OTPInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8800512D316F8000220F89 /* OTPInputView.swift */; };
 		2F8800542D31705700220F89 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8800532D31705700220F89 /* UIButton+.swift */; };
 		2F8800562D317F4500220F89 /* VefifyCodeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8800552D317F4500220F89 /* VefifyCodeUseCase.swift */; };
+		2FD3F64B2D5CD2CD00DD9426 /* SignupState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3F64A2D5CD2CD00DD9426 /* SignupState.swift */; };
+		2FD3F64D2D5CD5BA00DD9426 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3F64C2D5CD5BA00DD9426 /* SignupViewModel.swift */; };
+		2FD3F64F2D5CDBD800DD9426 /* IdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3F64E2D5CDBD800DD9426 /* IdViewController.swift */; };
+		2FD3F6512D5CDC2400DD9426 /* IdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3F6502D5CDC2400DD9426 /* IdViewModel.swift */; };
+		2FD3F6532D5CE3E500DD9426 /* IdViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3F6522D5CE3E500DD9426 /* IdViewLayout.swift */; };
 		2FF08C4D2D5CA506006FBB01 /* AuthStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF08C4C2D5CA506006FBB01 /* AuthStatus.swift */; };
 		2FF08C502D5CA552006FBB01 /* PopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF08C4F2D5CA552006FBB01 /* PopupManager.swift */; };
 		2FF08C522D5CA571006FBB01 /* AuthViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF08C512D5CA571006FBB01 /* AuthViewLayout.swift */; };
@@ -161,6 +166,11 @@
 		2F8800512D316F8000220F89 /* OTPInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPInputView.swift; sourceTree = "<group>"; };
 		2F8800532D31705700220F89 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		2F8800552D317F4500220F89 /* VefifyCodeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VefifyCodeUseCase.swift; sourceTree = "<group>"; };
+		2FD3F64A2D5CD2CD00DD9426 /* SignupState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupState.swift; sourceTree = "<group>"; };
+		2FD3F64C2D5CD5BA00DD9426 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		2FD3F64E2D5CDBD800DD9426 /* IdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdViewController.swift; sourceTree = "<group>"; };
+		2FD3F6502D5CDC2400DD9426 /* IdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdViewModel.swift; sourceTree = "<group>"; };
+		2FD3F6522D5CE3E500DD9426 /* IdViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdViewLayout.swift; sourceTree = "<group>"; };
 		2FF08C4C2D5CA506006FBB01 /* AuthStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStatus.swift; sourceTree = "<group>"; };
 		2FF08C4F2D5CA552006FBB01 /* PopupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupManager.swift; sourceTree = "<group>"; };
 		2FF08C512D5CA571006FBB01 /* AuthViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewLayout.swift; sourceTree = "<group>"; };
@@ -281,6 +291,7 @@
 				2F1B24E62D0C45A300EB96B2 /* MockData.swift */,
 				2F88001E2D306F1100220F89 /* LoginResponse.swift */,
 				2FF08C4C2D5CA506006FBB01 /* AuthStatus.swift */,
+				2FD3F64A2D5CD2CD00DD9426 /* SignupState.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -378,6 +389,8 @@
 				2F88000D2D305E1300220F89 /* LoginViewModel.swift */,
 				2F8800222D307CE900220F89 /* AuthViewModel.swift */,
 				2F8800492D31104000220F89 /* CodeVerificationViewModel.swift */,
+				2FD3F64C2D5CD5BA00DD9426 /* SignupViewModel.swift */,
+				2FD3F6502D5CDC2400DD9426 /* IdViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -411,6 +424,8 @@
 				2F8800412D31052F00220F89 /* CodeVerificationViewController.swift */,
 				2F88004D2D31198300220F89 /* CodeVerificationViewLayout.swift */,
 				2F8800512D316F8000220F89 /* OTPInputView.swift */,
+				2FD3F64E2D5CDBD800DD9426 /* IdViewController.swift */,
+				2FD3F6522D5CE3E500DD9426 /* IdViewLayout.swift */,
 			);
 			path = Signup;
 			sourceTree = "<group>";
@@ -641,10 +656,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FD3F64D2D5CD5BA00DD9426 /* SignupViewModel.swift in Sources */,
 				2F1B24BE2D0B985B00EB96B2 /* LoginAnimation.swift in Sources */,
 				2F8800132D30611500220F89 /* DefaultAPIClient.swift in Sources */,
 				2F1B24E32D0C447500EB96B2 /* APIClient.swift in Sources */,
 				2F8800422D31052F00220F89 /* CodeVerificationViewController.swift in Sources */,
+				2FD3F6512D5CDC2400DD9426 /* IdViewModel.swift in Sources */,
 				2F1B24972D0B869D00EB96B2 /* AppDelegate.swift in Sources */,
 				2F88000C2D305DF500220F89 /* LoginRepository.swift in Sources */,
 				2F8800212D307C1000220F89 /* MockLoginRepository.swift in Sources */,
@@ -677,6 +694,7 @@
 				2F8800562D317F4500220F89 /* VefifyCodeUseCase.swift in Sources */,
 				2F88004E2D31198300220F89 /* CodeVerificationViewLayout.swift in Sources */,
 				2F8800102D305E4B00220F89 /* LoginViewController.swift in Sources */,
+				2FD3F64B2D5CD2CD00DD9426 /* SignupState.swift in Sources */,
 				2F1B24D62D0C3F3700EB96B2 /* UIImage+.swift in Sources */,
 				2F1B24E72D0C45A300EB96B2 /* MockData.swift in Sources */,
 				2FF08C522D5CA571006FBB01 /* AuthViewLayout.swift in Sources */,
@@ -691,8 +709,10 @@
 				2F8800462D310F8B00220F89 /* AuthRepositoryProtocol.swift in Sources */,
 				2FF08C502D5CA552006FBB01 /* PopupManager.swift in Sources */,
 				2F8800442D310F7A00220F89 /* SendPhoneNumberUseCase.swift in Sources */,
+				2FD3F64F2D5CDBD800DD9426 /* IdViewController.swift in Sources */,
 				2F8800482D310FAB00220F89 /* AuthRepository.swift in Sources */,
 				2F8800172D306A9700220F89 /* ServerError.swift in Sources */,
+				2FD3F6532D5CE3E500DD9426 /* IdViewLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

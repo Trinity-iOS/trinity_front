@@ -12,6 +12,7 @@ protocol CodeVerificationViewModelProtocol {
     var statusPublisher: Published<AuthStatus>.Publisher { get }
     var errorMessagePublisher: Published<String?>.Publisher { get }
     var isVerifiedPublisher: Published<Bool>.Publisher { get }
+    var otpCodePublisher: Published<String>.Publisher { get }
     
     func updateOTP(_ otp: String)
     func verifyCode()
@@ -23,29 +24,27 @@ final class CodeVerificationViewModel: CodeVerificationViewModelProtocol {
     @Published private(set) var status: AuthStatus = .idle
     @Published private(set) var errorMessage: String?
     @Published private(set) var isVerified: Bool = false
+    @Published private(set) var otpCode: String = ""
     
     var statusPublisher: Published<AuthStatus>.Publisher { $status }
     var errorMessagePublisher: Published<String?>.Publisher { $errorMessage }
     var isVerifiedPublisher: Published<Bool>.Publisher { $isVerified }
+    var otpCodePublisher: Published<String>.Publisher { $otpCode }
     
+    private let signupViewModel: SignupViewModel
     private var cancellables = Set<AnyCancellable>()
     private let verifyCodeUseCase: VerifyCodeUseCaseProtocol
-    public let phoneNumber: String
-    var otpCode: String = "" {
-        didSet {
-            status = otpCode.count == 6 ? .ready : .idle
-        }
-    }
     
     // MARK: - Init
-    init(verifyCodeUseCase: VerifyCodeUseCaseProtocol, phoneNumber: String) {
+    init(signupViewModel: SignupViewModel, verifyCodeUseCase: VerifyCodeUseCaseProtocol) {
+        self.signupViewModel = signupViewModel
         self.verifyCodeUseCase = verifyCodeUseCase
-        self.phoneNumber = phoneNumber
     }
     
     // MARK: - OTP 입력 업데이트
-    func updateOTP(_ otp: String) {
-        otpCode = otp
+    func updateOTP(_ code: String) {
+        otpCode = code
+        status = otpCode.count == 6 ? .ready : .idle
     }
     
     // MARK: - OTP 검증
@@ -55,10 +54,10 @@ final class CodeVerificationViewModel: CodeVerificationViewModelProtocol {
             return
         }
         
-        log("Verifying code for phoneNumber: \(phoneNumber)", level: .network)
+        log("Verifying code for phoneNumber: \(String(describing: signupViewModel.signupState.phoneNumber))", level: .network)
         status = .loading
         
-        verifyCodeUseCase.verifyCode(phoneNumber: phoneNumber, code: otpCode)
+        verifyCodeUseCase.verifyCode(phoneNumber: signupViewModel.signupState.phoneNumber ?? "", code: otpCode)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
