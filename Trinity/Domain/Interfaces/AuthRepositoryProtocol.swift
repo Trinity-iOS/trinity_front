@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 protocol AuthRepositoryProtocol {
-    func sendPhoneNumber(phoneNumber: String) -> AnyPublisher<Void, Error>
+    func sendPhoneNumber(phoneNumber: String) -> AnyPublisher<String, Error>
     func verifyCode(phoneNumber: String, code: String) -> AnyPublisher<Void, Error>
 }
+

@@ -5,17 +5,23 @@
 //  Created by Park Seyoung on 1/10/25.
 //
 
-import Foundation
 import Combine
 
-final class SendPhoneNumberUseCase {
+protocol SendPhoneNumberUseCaseProtocol {
+    func sendPhoneNumber(phoneNumber: String) -> AnyPublisher<String, Error>
+}
+
+final class SendPhoneNumberUseCase: SendPhoneNumberUseCaseProtocol {
+    
     private let repository: AuthRepositoryProtocol
     
     init(repository: AuthRepositoryProtocol) {
         self.repository = repository
     }
     
-    func execute(phoneNumber: String) -> AnyPublisher<Void, Error> {
-        repository.sendPhoneNumber(phoneNumber: phoneNumber)
+    // MARK: - 전화번호 인증 요청 (Repository에서 verificationID 반환)
+    func sendPhoneNumber(phoneNumber: String) -> AnyPublisher<String, Error> {
+        return repository.sendPhoneNumber(phoneNumber: phoneNumber)
     }
 }
+

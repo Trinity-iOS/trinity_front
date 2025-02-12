@@ -1,5 +1,5 @@
 //
-//  AuthViewLayout.swift
+//  IdViewLayout.swift
 //  Trinity
 //
 //  Created by Park Seyoung on 2/12/25.
@@ -7,18 +7,19 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
-extension AuthViewController {
+extension IdViewController {
     func setLayout() {
         baseView.configure(
             title: "LET'S\nGET STARTED!",
-            status: "We will send you\n4 digits verification code.",
-            progress: 0.33,
+            status: "You can write your ID.",
+            progress: 0.48,
             buttonText: "Continue"
         )
         
         baseView.continueButton.addTarget(self, action: #selector(continueTapped), for: .touchUpInside)
-        [subTitleLabel, phoneTextFieldView, phoneTextField].forEach {
+        [subTitleLabel, idTextFieldView, idTextField].forEach {
             baseView.contentView.addSubview($0)
         }
         
@@ -29,14 +30,14 @@ extension AuthViewController {
             make.leading.equalToSuperview().offset(24)
         }
         
-        phoneTextFieldView.snp.makeConstraints { make in
+        idTextFieldView.snp.makeConstraints { make in
             make.top.equalTo(subTitleLabel.snp.bottom).offset(screenHeight * 0.015)
             make.leading.trailing.equalToSuperview().inset(24)
             make.height.equalTo(screenHeight * 0.06)
         }
         
-        phoneTextField.snp.makeConstraints { make in
-            make.edges.equalTo(phoneTextFieldView).inset(12)
+        idTextField.snp.makeConstraints { make in
+            make.edges.equalTo(idTextFieldView).inset(12)
         }
     }
 }

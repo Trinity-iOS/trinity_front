@@ -1,18 +1,17 @@
 //
-//  AuthViewController.swift
+//  IdViewController.swift
 //  Trinity
 //
-//  Created by Park Seyoung on 1/10/25.
+//  Created by Park Seyoung on 2/12/25.
 //
 
-import UIKit
-import SnapKit
-import Combine
-import Firebase
 
-class AuthViewController: UIViewController {
+import UIKit
+import Combine
+
+class IdViewController: UIViewController {
     
-    private let viewModel: AuthViewModelProtocol
+    private let viewModel: IdViewModelProtocol
     let baseView = SignupBaseView()
     private let diContainer: DIContainer
     private var cancellables = Set<AnyCancellable>()
@@ -22,22 +21,21 @@ class AuthViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont(name: "Pretendard-Regular", size: 14)
         label.textColor = .IFBorderAct
-        label.text = "Mobile Number"
+        label.text = "ID"
         label.numberOfLines = 0
         label.textAlignment = .left
         return label
     }()
     
-    lazy var phoneTextFieldView: UIView = {
+    lazy var idTextFieldView: UIView = {
         let view = UIView()
         view.layer.borderColor = UIColor.IFTextInfo.cgColor
         view.layer.borderWidth = 1.0
         return view
     }()
     
-    lazy var phoneTextField: UITextField = {
+    lazy var idTextField: UITextField = {
         let textField = UITextField()
-        textField.keyboardType = .numberPad
         textField.clearButtonMode = .whileEditing
         textField.textAlignment = .left
         textField.textColor = .IFBorderAct
@@ -45,7 +43,7 @@ class AuthViewController: UIViewController {
         textField.backgroundColor = .clear
         
         textField.attributedPlaceholder = NSAttributedString(
-            string: "Ex. 01012345678",
+            string: "Ex. aekjngk",
             attributes: [
                 .foregroundColor: UIColor.IFTextInfo,
                 .font: UIFont(name: "Pretendard-Regular", size: 16)!
@@ -56,7 +54,7 @@ class AuthViewController: UIViewController {
     }()
     
     // MARK: - Initializer
-    init(viewModel: AuthViewModelProtocol, diContainer: DIContainer) {
+    init(viewModel: IdViewModelProtocol, diContainer: DIContainer) {
         self.viewModel = viewModel
         self.diContainer = diContainer
         super.init(nibName: nil, bundle: nil)
@@ -65,7 +63,7 @@ class AuthViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // MARK: - Life Cycle
     override func loadView() {
         view = baseView
@@ -81,44 +79,41 @@ class AuthViewController: UIViewController {
     private func bindViewModel() {
         viewModel.statusPublisher
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] (status: AuthStatus) in
+            .sink { [weak self] status in
                 self?.updateButtonUI(for: status)
-                
-                if case .success = status {
-                    self?.navigateToCodeVerification()
-                }
             }
             .store(in: &cancellables)
-        
+
+        viewModel.idPublisher
+            .dropFirst()
+            .removeDuplicates()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] id in
+                self?.idTextField.text = id
+                let isValid = self?.viewModel.isValidId(id) ?? false
+                self?.updateIdUI(isValid: isValid)
+            }
+            .store(in: &cancellables)
+
         viewModel.errorMessagePublisher
+            .compactMap { $0 }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] errorMessage in
-                if let message = errorMessage {
-                    PopupManager.shared.showErrorAlert(errorMessage: message, on: self!)
-                }
-            }
-            .store(in: &cancellables)
-        
-        viewModel.formattedPhoneNumberPublisher
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] formattedText in
-                self?.phoneTextField.text = formattedText
-                let isValid = formattedText.isEmpty ? nil : self?.viewModel.isValidPhoneNumber(formattedText) ?? false
-                self?.updatePhoneNumberUI(isValid: isValid)
+                PopupManager.shared.showErrorAlert(errorMessage: errorMessage, on: self!)
             }
             .store(in: &cancellables)
     }
-    
-    
+
     // MARK: - Actions
     @objc func continueTapped() {
-        viewModel.sendVerificationCode()
+        viewModel.saveId()
+        navigateToNextStep()
     }
     
     // MARK: - Navigation
-    private func navigateToCodeVerification() {
-        let codeVerificationVC = diContainer.makeCodeVerificationViewController()
-        navigationController?.pushViewController(codeVerificationVC, animated: true)
+    private func navigateToNextStep() {
+        log("Move to next step", level: .info)
+        // 다음 VC 이동 코드 추가
     }
     
     // MARK: - UI Helpers
@@ -131,7 +126,7 @@ class AuthViewController: UIViewController {
             buttonTitle = "Continue"
             isEnabled = false
         case .loading:
-            buttonTitle = "Sending..."
+            buttonTitle = "Checking..."
             isEnabled = false
         case .success:
             buttonTitle = "Complete!"
@@ -149,55 +144,40 @@ class AuthViewController: UIViewController {
         updateButtonAppearance(button: baseView.continueButton)
     }
     
-    func updateButtonAppearance(button: UIButton) {
+    private func updateButtonAppearance(button: UIButton) {
         button.backgroundColor = button.isEnabled ? .IFBlackSecondary : .IFIvory2
         button.setTitleColor(button.isEnabled ? .IFIvory : .IFTextDis, for: .normal)
     }
     
-    private func updatePhoneNumberUI(isValid: Bool?) {
-        let borderColor: UIColor
-        let textColor: UIColor
+    private func updateIdUI(isValid: Bool?) {
+        guard let isValid = isValid else { return }
         
-        if let isValid = isValid {
-            borderColor = isValid ? .IFBorderAct : .IFErrorBorder
-            textColor = isValid ? .IFBorderAct : .IFErrorText
-        } else {
-            borderColor = .IFTextInfo
-            textColor = .IFBorderAct
+        let borderColor: UIColor = isValid ? .IFBorderAct : .IFErrorBorder
+        let textColor: UIColor = isValid ? .IFBorderAct : .IFErrorText
+        
+        UIView.animate(withDuration: 0.15) { 
+            self.idTextFieldView.layer.borderColor = borderColor.cgColor
+            self.idTextField.textColor = textColor
         }
-        
-        phoneTextFieldView.layer.borderColor = borderColor.cgColor
-        phoneTextField.textColor = textColor
     }
 }
 
-// MARK: - TextField Setting
-extension AuthViewController: UITextFieldDelegate {
+// MARK: - TextField Delegate
+extension IdViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard !string.contains(" ") else { return false }
         
+        // 입력된 텍스트 업데이트
         guard let currentText = textField.text as NSString? else { return true }
-        
         let newString = currentText.replacingCharacters(in: range, with: string)
         
-        let numbersOnly = newString.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
-        
-        if numbersOnly.count > 11 { return false }
-
-        if textField.text != numbersOnly { 
-            viewModel.updateUserPhoneNumber(numbersOnly)
-        }
-       
-        let isValid: Bool? = numbersOnly.isEmpty ? nil : viewModel.isValidPhoneNumber(numbersOnly)
-        updatePhoneNumberUI(isValid: isValid)
-        
+        viewModel.updateId(newString)
         return true
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        textField.text = ""
-        viewModel.updateUserPhoneNumber("")
-        updatePhoneNumberUI(isValid: nil)
+        viewModel.updateId("")
+        updateIdUI(isValid: nil)
         return true
     }
 }

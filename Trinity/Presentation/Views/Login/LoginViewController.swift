@@ -110,7 +110,7 @@ final class LoginViewController: UIViewController {
               let window = sceneDelegate.window else { return }
         
         let diContainer = DIContainer()
-        let signupVC = DIContainer.makeSignupPhoneAuthViewController(diContainer)
+        let signupVC = DIContainer.makeAuthViewController(diContainer)
         let signupNavController = UINavigationController(rootViewController: signupVC())
 
         

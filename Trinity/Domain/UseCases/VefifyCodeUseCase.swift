@@ -5,19 +5,22 @@
 //  Created by Park Seyoung on 1/11/25.
 //
 
-import Foundation
 import Combine
 
-final class VerifyCodeUseCase {
-    private let repository: AuthRepositoryProtocol
+protocol VerifyCodeUseCaseProtocol {
+    func verifyCode(phoneNumber: String, code: String) -> AnyPublisher<Void, Error>
+}
 
+final class VerifyCodeUseCase: VerifyCodeUseCaseProtocol {
+    
+    private let repository: AuthRepositoryProtocol
+    
     init(repository: AuthRepositoryProtocol) {
         self.repository = repository
     }
-
-    func execute(phoneNumber: String, code: String) -> AnyPublisher<Void, Error> {
-        log("Executing VerifyCodeUseCase with phoneNumber: \(phoneNumber) and code: \(code)", level: .debug)
+    
+    // MARK: -  인증 코드 확인
+    func verifyCode(phoneNumber: String, code: String) -> AnyPublisher<Void, Error> {
         return repository.verifyCode(phoneNumber: phoneNumber, code: code)
     }
 }
-
