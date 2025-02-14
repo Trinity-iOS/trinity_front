@@ -38,6 +38,12 @@ final class DIContainer {
             signupViewModel: signupViewModel
         )
     }
+    
+    func makeProfileViewModel() -> ProfileViewModel {
+        return ProfileViewModel(
+            signupViewModel: signupViewModel
+        )
+    }
 
     func makeSignupViewModel() -> SignupViewModel {
         return signupViewModel
@@ -63,6 +69,10 @@ final class DIContainer {
     
     func makeIdViewController() -> IdViewController {
         return IdViewController(viewModel: makeIdViewModel(), diContainer: self)
+    }
+    
+    func makeProfileViewController() -> ProfileViewController {
+        return ProfileViewController(viewModel: makeProfileViewModel(), diContainer: self)
     }
 
     private func makeSendPhoneNumberUseCase() -> SendPhoneNumberUseCase {

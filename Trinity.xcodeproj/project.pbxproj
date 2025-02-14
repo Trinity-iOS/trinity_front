@@ -78,6 +78,10 @@
 		2FD3F64F2D5CDBD800DD9426 /* IdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3F64E2D5CDBD800DD9426 /* IdViewController.swift */; };
 		2FD3F6512D5CDC2400DD9426 /* IdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3F6502D5CDC2400DD9426 /* IdViewModel.swift */; };
 		2FD3F6532D5CE3E500DD9426 /* IdViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3F6522D5CE3E500DD9426 /* IdViewLayout.swift */; };
+		2FE55C172D5E928100BFE6F7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE55C162D5E928100BFE6F7 /* ProfileViewController.swift */; };
+		2FE55C1B2D5E929F00BFE6F7 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE55C1A2D5E929F00BFE6F7 /* ProfileViewModel.swift */; };
+		2FE55C1D2D5E955700BFE6F7 /* ProfileStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE55C1C2D5E955700BFE6F7 /* ProfileStatus.swift */; };
+		2FE55C1F2D5E9BBF00BFE6F7 /* ProfileViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE55C1E2D5E9BBF00BFE6F7 /* ProfileViewLayout.swift */; };
 		2FF08C4D2D5CA506006FBB01 /* AuthStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF08C4C2D5CA506006FBB01 /* AuthStatus.swift */; };
 		2FF08C502D5CA552006FBB01 /* PopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF08C4F2D5CA552006FBB01 /* PopupManager.swift */; };
 		2FF08C522D5CA571006FBB01 /* AuthViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF08C512D5CA571006FBB01 /* AuthViewLayout.swift */; };
@@ -171,6 +175,10 @@
 		2FD3F64E2D5CDBD800DD9426 /* IdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdViewController.swift; sourceTree = "<group>"; };
 		2FD3F6502D5CDC2400DD9426 /* IdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdViewModel.swift; sourceTree = "<group>"; };
 		2FD3F6522D5CE3E500DD9426 /* IdViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdViewLayout.swift; sourceTree = "<group>"; };
+		2FE55C162D5E928100BFE6F7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		2FE55C1A2D5E929F00BFE6F7 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		2FE55C1C2D5E955700BFE6F7 /* ProfileStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStatus.swift; sourceTree = "<group>"; };
+		2FE55C1E2D5E9BBF00BFE6F7 /* ProfileViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewLayout.swift; sourceTree = "<group>"; };
 		2FF08C4C2D5CA506006FBB01 /* AuthStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStatus.swift; sourceTree = "<group>"; };
 		2FF08C4F2D5CA552006FBB01 /* PopupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupManager.swift; sourceTree = "<group>"; };
 		2FF08C512D5CA571006FBB01 /* AuthViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewLayout.swift; sourceTree = "<group>"; };
@@ -292,6 +300,7 @@
 				2F88001E2D306F1100220F89 /* LoginResponse.swift */,
 				2FF08C4C2D5CA506006FBB01 /* AuthStatus.swift */,
 				2FD3F64A2D5CD2CD00DD9426 /* SignupState.swift */,
+				2FE55C1C2D5E955700BFE6F7 /* ProfileStatus.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -391,6 +400,7 @@
 				2F8800492D31104000220F89 /* CodeVerificationViewModel.swift */,
 				2FD3F64C2D5CD5BA00DD9426 /* SignupViewModel.swift */,
 				2FD3F6502D5CDC2400DD9426 /* IdViewModel.swift */,
+				2FE55C1A2D5E929F00BFE6F7 /* ProfileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -426,6 +436,8 @@
 				2F8800512D316F8000220F89 /* OTPInputView.swift */,
 				2FD3F64E2D5CDBD800DD9426 /* IdViewController.swift */,
 				2FD3F6522D5CE3E500DD9426 /* IdViewLayout.swift */,
+				2FE55C162D5E928100BFE6F7 /* ProfileViewController.swift */,
+				2FE55C1E2D5E9BBF00BFE6F7 /* ProfileViewLayout.swift */,
 			);
 			path = Signup;
 			sourceTree = "<group>";
@@ -657,6 +669,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FD3F64D2D5CD5BA00DD9426 /* SignupViewModel.swift in Sources */,
+				2FE55C1F2D5E9BBF00BFE6F7 /* ProfileViewLayout.swift in Sources */,
 				2F1B24BE2D0B985B00EB96B2 /* LoginAnimation.swift in Sources */,
 				2F8800132D30611500220F89 /* DefaultAPIClient.swift in Sources */,
 				2F1B24E32D0C447500EB96B2 /* APIClient.swift in Sources */,
@@ -669,6 +682,7 @@
 				2F8800192D306AC700220F89 /* APIResponse.swift in Sources */,
 				2F8800082D305DCA00220F89 /* LoginRepositoryProtocol.swift in Sources */,
 				2F1B24E12D0C446B00EB96B2 /* ArtworkRepositoryImpl.swift in Sources */,
+				2FE55C172D5E928100BFE6F7 /* ProfileViewController.swift in Sources */,
 				2F88000A2D305DDD00220F89 /* LoginUseCase.swift in Sources */,
 				2F1B24F52D0C4B7500EB96B2 /* SubscribeWorkCollectionViewCell.swift in Sources */,
 				2F8800502D315F4900220F89 /* SignupBaseView.swift in Sources */,
@@ -690,9 +704,11 @@
 				2F1B24DB2D0C442300EB96B2 /* Artwork.swift in Sources */,
 				2F1B24E92D0C46F100EB96B2 /* FetchArtworkUseCase.swift in Sources */,
 				2F88002B2D30976300220F89 /* UIView+.swift in Sources */,
+				2FE55C1D2D5E955700BFE6F7 /* ProfileStatus.swift in Sources */,
 				2F88004A2D31104000220F89 /* CodeVerificationViewModel.swift in Sources */,
 				2F8800562D317F4500220F89 /* VefifyCodeUseCase.swift in Sources */,
 				2F88004E2D31198300220F89 /* CodeVerificationViewLayout.swift in Sources */,
+				2FE55C1B2D5E929F00BFE6F7 /* ProfileViewModel.swift in Sources */,
 				2F8800102D305E4B00220F89 /* LoginViewController.swift in Sources */,
 				2FD3F64B2D5CD2CD00DD9426 /* SignupState.swift in Sources */,
 				2F1B24D62D0C3F3700EB96B2 /* UIImage+.swift in Sources */,

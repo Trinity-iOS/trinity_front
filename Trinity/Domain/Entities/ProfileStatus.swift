@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+enum ProfileStatus {
+    case randomImageSelected
+    case userImageSelected
+    case bioValid
+    case bioTooLong
+    case ready
+    case success
+}
