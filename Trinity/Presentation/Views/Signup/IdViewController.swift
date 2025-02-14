@@ -113,7 +113,8 @@ class IdViewController: UIViewController {
     // MARK: - Navigation
     private func navigateToNextStep() {
         log("Move to next step", level: .info)
-        // 다음 VC 이동 코드 추가
+        let profileVC = diContainer.makeProfileViewController()
+        navigationController?.pushViewController(profileVC, animated: true)
     }
     
     // MARK: - UI Helpers
