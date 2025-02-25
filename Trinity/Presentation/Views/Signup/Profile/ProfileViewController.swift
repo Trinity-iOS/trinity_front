@@ -69,8 +69,8 @@ class ProfileViewController: UIViewController {
         return textView
     }()
     
-    // MARK: - Initializer
-    init(viewModel: ProfileViewModel, diContainer: DIContainer) {
+    // MARK: - Initialize
+    init(viewModel: profileViewModelProtocol, diContainer: DIContainer) {
         self.viewModel = viewModel
         self.diContainer = diContainer
         super.init(nibName: nil, bundle: nil)
@@ -164,7 +164,8 @@ class ProfileViewController: UIViewController {
     // MARK: - Navigation
     private func navigateToNextStep() {
         log("Move to next step", level: .info)
-        // 다음 VC 이동 코드 추가
+        let interestVC = diContainer.makeInerestViewController()
+        navigationController?.pushViewController(interestVC, animated: true)
     }
     
     

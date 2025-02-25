@@ -48,6 +48,12 @@ final class DIContainer {
     func makeSignupViewModel() -> SignupViewModel {
         return signupViewModel
     }
+    
+    func makeInterestViewModel() -> InterestsViewModel {
+        return InterestsViewModel(
+            signupViewModel: signupViewModel
+        )
+    }
 
     @MainActor static func makeLoginViewController() -> LoginViewController {
         let apiClient = DefaultAPIClient()
@@ -81,5 +87,9 @@ final class DIContainer {
 
     private func makeVerifyCodeUseCase() -> VerifyCodeUseCase {
         return VerifyCodeUseCase(repository: authRepository)
+    }
+    
+    func makeInerestViewController() -> InterestsViewController {
+        return InterestsViewController(viewModel: makeInterestViewModel(), diContainer: self)
     }
 }
