@@ -10,9 +10,9 @@ import Combine
 import UIKit
 
 final class SignupViewModel {
-    @Published private(set) var signupState: SignupState
+    @Published private(set) var signupState: SignupModel
     
-    init(signupState: SignupState = SignupState()) {
+    init(signupState: SignupModel = SignupModel()) {
         self.signupState = signupState
     }
     

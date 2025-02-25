@@ -197,7 +197,6 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         }
         picker.dismiss(animated: true)
     }
-    
 }
 
 extension ProfileViewController: UITextViewDelegate {
