@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct SignupState {
+struct SignupModel {
     var country: String?
     var phoneNumber: String?
     var id: String?

@@ -45,6 +45,10 @@
 		2F3671A32D3CBAA30048D9AD /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 2F3671A22D3CBAA30048D9AD /* FirebaseCore */; };
 		2F3671A52D3CBAA30048D9AD /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 2F3671A42D3CBAA30048D9AD /* FirebaseMessaging */; };
 		2F3671A72D3CC82D0048D9AD /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3671A62D3CC82D0048D9AD /* Keychain.swift */; };
+		2F4646A72D6DB9A000603332 /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4646A52D6DB9A000603332 /* PortfolioViewController.swift */; };
+		2F4646A92D6DBC1F00603332 /* PortfolioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4646A82D6DBC1F00603332 /* PortfolioViewModel.swift */; };
+		2F4646AB2D6DC57D00603332 /* PortfolioStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4646AA2D6DC57D00603332 /* PortfolioStatus.swift */; };
+		2F4646AD2D6DC80200603332 /* PorfolioViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4646AC2D6DC80200603332 /* PorfolioViewLayout.swift */; };
 		2F8800082D305DCA00220F89 /* LoginRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8800072D305DCA00220F89 /* LoginRepositoryProtocol.swift */; };
 		2F88000A2D305DDD00220F89 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8800092D305DDD00220F89 /* LoginUseCase.swift */; };
 		2F88000C2D305DF500220F89 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F88000B2D305DF500220F89 /* LoginRepository.swift */; };
@@ -75,7 +79,7 @@
 		2F8800522D316F8000220F89 /* OTPInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8800512D316F8000220F89 /* OTPInputView.swift */; };
 		2F8800542D31705700220F89 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8800532D31705700220F89 /* UIButton+.swift */; };
 		2F8800562D317F4500220F89 /* VefifyCodeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8800552D317F4500220F89 /* VefifyCodeUseCase.swift */; };
-		2FD3F64B2D5CD2CD00DD9426 /* SignupState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3F64A2D5CD2CD00DD9426 /* SignupState.swift */; };
+		2FD3F64B2D5CD2CD00DD9426 /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3F64A2D5CD2CD00DD9426 /* SignupModel.swift */; };
 		2FD3F64D2D5CD5BA00DD9426 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3F64C2D5CD5BA00DD9426 /* SignupViewModel.swift */; };
 		2FD3F64F2D5CDBD800DD9426 /* IdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3F64E2D5CDBD800DD9426 /* IdViewController.swift */; };
 		2FD3F6512D5CDC2400DD9426 /* IdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3F6502D5CDC2400DD9426 /* IdViewModel.swift */; };
@@ -147,6 +151,10 @@
 		2F3671992D3CAE390048D9AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F36719B2D3CAF250048D9AD /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		2F3671A62D3CC82D0048D9AD /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		2F4646A52D6DB9A000603332 /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
+		2F4646A82D6DBC1F00603332 /* PortfolioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewModel.swift; sourceTree = "<group>"; };
+		2F4646AA2D6DC57D00603332 /* PortfolioStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioStatus.swift; sourceTree = "<group>"; };
+		2F4646AC2D6DC80200603332 /* PorfolioViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PorfolioViewLayout.swift; sourceTree = "<group>"; };
 		2F8800072D305DCA00220F89 /* LoginRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepositoryProtocol.swift; sourceTree = "<group>"; };
 		2F8800092D305DDD00220F89 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		2F88000B2D305DF500220F89 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
@@ -178,7 +186,7 @@
 		2F8800512D316F8000220F89 /* OTPInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPInputView.swift; sourceTree = "<group>"; };
 		2F8800532D31705700220F89 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		2F8800552D317F4500220F89 /* VefifyCodeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VefifyCodeUseCase.swift; sourceTree = "<group>"; };
-		2FD3F64A2D5CD2CD00DD9426 /* SignupState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupState.swift; sourceTree = "<group>"; };
+		2FD3F64A2D5CD2CD00DD9426 /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
 		2FD3F64C2D5CD5BA00DD9426 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		2FD3F64E2D5CDBD800DD9426 /* IdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdViewController.swift; sourceTree = "<group>"; };
 		2FD3F6502D5CDC2400DD9426 /* IdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdViewModel.swift; sourceTree = "<group>"; };
@@ -311,8 +319,9 @@
 				2F1B24E62D0C45A300EB96B2 /* MockData.swift */,
 				2F88001E2D306F1100220F89 /* LoginResponse.swift */,
 				2FF08C4C2D5CA506006FBB01 /* AuthStatus.swift */,
-				2FD3F64A2D5CD2CD00DD9426 /* SignupState.swift */,
+				2FD3F64A2D5CD2CD00DD9426 /* SignupModel.swift */,
 				2FE55C1C2D5E955700BFE6F7 /* ProfileStatus.swift */,
+				2F4646AA2D6DC57D00603332 /* PortfolioStatus.swift */,
 				2FE55C2E2D5F431500BFE6F7 /* Category.swift */,
 			);
 			path = Entities;
@@ -415,6 +424,7 @@
 				2FD3F6502D5CDC2400DD9426 /* IdViewModel.swift */,
 				2FE55C1A2D5E929F00BFE6F7 /* ProfileViewModel.swift */,
 				2FE55C2C2D5F3CD300BFE6F7 /* InterestsViewModel.swift */,
+				2F4646A82D6DBC1F00603332 /* PortfolioViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -448,6 +458,7 @@
 				2FE55C342D5F43BB00BFE6F7 /* id */,
 				2FE55C352D5F43C000BFE6F7 /* Profile */,
 				2FE55C382D5F453800BFE6F7 /* Interests */,
+				2F4646A62D6DB9A000603332 /* Portfoilo */,
 			);
 			path = Signup;
 			sourceTree = "<group>";
@@ -481,6 +492,15 @@
 				2F1B24F42D0C4B7500EB96B2 /* SubscribeWorkCollectionViewCell.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		2F4646A62D6DB9A000603332 /* Portfoilo */ = {
+			isa = PBXGroup;
+			children = (
+				2F4646A52D6DB9A000603332 /* PortfolioViewController.swift */,
+				2F4646AC2D6DC80200603332 /* PorfolioViewLayout.swift */,
+			);
+			path = Portfoilo;
 			sourceTree = "<group>";
 		};
 		2F88001D2D306E1D00220F89 /* Login */ = {
@@ -759,6 +779,7 @@
 				2F1B24A22D0B8D4300EB96B2 /* DIContainer.swift in Sources */,
 				2F1B24D32D0C28D200EB96B2 /* CustomTabBar.swift in Sources */,
 				2F36719C2D3CAF250048D9AD /* Logger.swift in Sources */,
+				2F4646A72D6DB9A000603332 /* PortfolioViewController.swift in Sources */,
 				2F8800542D31705700220F89 /* UIButton+.swift in Sources */,
 				2F1B24DB2D0C442300EB96B2 /* Artwork.swift in Sources */,
 				2F1B24E92D0C46F100EB96B2 /* FetchArtworkUseCase.swift in Sources */,
@@ -771,7 +792,7 @@
 				2FE55C2F2D5F431500BFE6F7 /* Category.swift in Sources */,
 				2FE55C1B2D5E929F00BFE6F7 /* ProfileViewModel.swift in Sources */,
 				2F8800102D305E4B00220F89 /* LoginViewController.swift in Sources */,
-				2FD3F64B2D5CD2CD00DD9426 /* SignupState.swift in Sources */,
+				2FD3F64B2D5CD2CD00DD9426 /* SignupModel.swift in Sources */,
 				2F1B24D62D0C3F3700EB96B2 /* UIImage+.swift in Sources */,
 				2F10D5492D6C889F0036668C /* SubCategoryCell.swift in Sources */,
 				2F1B24E72D0C45A300EB96B2 /* MockData.swift in Sources */,
@@ -779,11 +800,14 @@
 				2F1B24EB2D0C472600EB96B2 /* HomeViewModel.swift in Sources */,
 				2F1B24F32D0C4AF800EB96B2 /* HomePageViewController.swift in Sources */,
 				2F1B24982D0B869D00EB96B2 /* SceneDelegate.swift in Sources */,
+				2F4646AB2D6DC57D00603332 /* PortfolioStatus.swift in Sources */,
 				2F1B24D12D0C28B300EB96B2 /* TabBarViewController.swift in Sources */,
 				2F1B24ED2D0C476A00EB96B2 /* HomeViewLayout.swift in Sources */,
+				2F4646A92D6DBC1F00603332 /* PortfolioViewModel.swift in Sources */,
 				2F1B24E52D0C447F00EB96B2 /* Endpoint.swift in Sources */,
 				2F1B24D92D0C41A700EB96B2 /* HomeViewController.swift in Sources */,
 				2F1B24EF2D0C482100EB96B2 /* Observable.swift in Sources */,
+				2F4646AD2D6DC80200603332 /* PorfolioViewLayout.swift in Sources */,
 				2FE55C312D5F439D00BFE6F7 /* InterestsViewController.swift in Sources */,
 				2F8800462D310F8B00220F89 /* AuthRepositoryProtocol.swift in Sources */,
 				2FF08C502D5CA552006FBB01 /* PopupManager.swift in Sources */,

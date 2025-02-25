@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 //        let loginViewController = DIContainer.makeLoginViewController() // DI 컨테이너 사용
         let DIContainer = DIContainer()
-        let interestVC = DIContainer.makeInerestViewController()
+        let interestVC = DIContainer.makePortfolioViewController()
         
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = UINavigationController(rootViewController: interestVC)
