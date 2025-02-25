@@ -14,10 +14,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let loginViewController = DIContainer.makeLoginViewController() // DI 컨테이너 사용
+//        let loginViewController = DIContainer.makeLoginViewController() // DI 컨테이너 사용
+        let DIContainer = DIContainer()
+        let interestVC = DIContainer.makeInerestViewController()
         
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = UINavigationController(rootViewController: loginViewController)
+        window.rootViewController = UINavigationController(rootViewController: interestVC)
         self.window = window
         window.makeKeyAndVisible()
     }
