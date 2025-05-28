@@ -60,6 +60,12 @@ final class DIContainer {
             signupViewModel: signupViewModel
         )
     }
+    
+    func makePortfolioDetailViewModel() -> PortfolioDetailViewModel {
+        return PortfolioDetailViewModel(
+            signupViewModel: signupViewModel
+        )
+    }
 
     @MainActor static func makeLoginViewController() -> LoginViewController {
         let apiClient = DefaultAPIClient()
@@ -101,5 +107,9 @@ final class DIContainer {
     
     func makePortfolioViewController() -> PortfolioViewController {
         return PortfolioViewController(viewModel: makePortfolioViewModel(), diContainer: self)
+    }
+    
+    func makePortfolioDetailViewController() -> PortfolioDetailViewController {
+        return PortfolioDetailViewController(viewModel: makePortfolioDetailViewModel(), diContainer: self)
     }
 }

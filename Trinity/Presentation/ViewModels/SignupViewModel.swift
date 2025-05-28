@@ -52,5 +52,10 @@ final class SignupViewModel {
     func updateMusicURL(_ url: URL?) {
         signupState.musicURL = url
     }
+    
+    func updateTitleContents(_ title: String,_ content: String) {
+        signupState.title = title
+        signupState.content = content
+    }
 }
 

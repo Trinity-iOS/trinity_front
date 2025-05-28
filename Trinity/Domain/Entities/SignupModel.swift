@@ -18,6 +18,8 @@ struct SignupModel {
     var interests: [[String]]?
     var portfolioImage: UIImage?
     var musicURL: URL?
+    var title: String?
+    var content: String?
 }
 
 

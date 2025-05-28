@@ -222,7 +222,7 @@ class PortfolioViewController: UIViewController {
     // MARK: - Navigation
     private func navigateToNextStep() {
         log("Move to next step", level: .info)
-        let profileVC = diContainer.makeProfileViewController()
+        let profileVC = diContainer.makePortfolioDetailViewController()
         navigationController?.pushViewController(profileVC, animated: true)
     }
     

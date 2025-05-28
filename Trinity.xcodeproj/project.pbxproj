@@ -79,6 +79,9 @@
 		2F8800522D316F8000220F89 /* OTPInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8800512D316F8000220F89 /* OTPInputView.swift */; };
 		2F8800542D31705700220F89 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8800532D31705700220F89 /* UIButton+.swift */; };
 		2F8800562D317F4500220F89 /* VefifyCodeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8800552D317F4500220F89 /* VefifyCodeUseCase.swift */; };
+		2FA7B24C2D86E82100D847D8 /* PortfolioDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA7B24B2D86E82100D847D8 /* PortfolioDetailViewController.swift */; };
+		2FA7B24E2D86E9DC00D847D8 /* PortfolioDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA7B24D2D86E9DC00D847D8 /* PortfolioDetailViewModel.swift */; };
+		2FA7B2502D86EBF500D847D8 /* PortfolioDeatilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA7B24F2D86EBF500D847D8 /* PortfolioDeatilView.swift */; };
 		2FD3F64B2D5CD2CD00DD9426 /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3F64A2D5CD2CD00DD9426 /* SignupModel.swift */; };
 		2FD3F64D2D5CD5BA00DD9426 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3F64C2D5CD5BA00DD9426 /* SignupViewModel.swift */; };
 		2FD3F64F2D5CDBD800DD9426 /* IdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3F64E2D5CDBD800DD9426 /* IdViewController.swift */; };
@@ -186,6 +189,9 @@
 		2F8800512D316F8000220F89 /* OTPInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPInputView.swift; sourceTree = "<group>"; };
 		2F8800532D31705700220F89 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		2F8800552D317F4500220F89 /* VefifyCodeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VefifyCodeUseCase.swift; sourceTree = "<group>"; };
+		2FA7B24B2D86E82100D847D8 /* PortfolioDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDetailViewController.swift; sourceTree = "<group>"; };
+		2FA7B24D2D86E9DC00D847D8 /* PortfolioDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDetailViewModel.swift; sourceTree = "<group>"; };
+		2FA7B24F2D86EBF500D847D8 /* PortfolioDeatilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDeatilView.swift; sourceTree = "<group>"; };
 		2FD3F64A2D5CD2CD00DD9426 /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
 		2FD3F64C2D5CD5BA00DD9426 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		2FD3F64E2D5CDBD800DD9426 /* IdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdViewController.swift; sourceTree = "<group>"; };
@@ -425,6 +431,7 @@
 				2FE55C1A2D5E929F00BFE6F7 /* ProfileViewModel.swift */,
 				2FE55C2C2D5F3CD300BFE6F7 /* InterestsViewModel.swift */,
 				2F4646A82D6DBC1F00603332 /* PortfolioViewModel.swift */,
+				2FA7B24D2D86E9DC00D847D8 /* PortfolioDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -499,6 +506,8 @@
 			children = (
 				2F4646A52D6DB9A000603332 /* PortfolioViewController.swift */,
 				2F4646AC2D6DC80200603332 /* PorfolioViewLayout.swift */,
+				2FA7B24B2D86E82100D847D8 /* PortfolioDetailViewController.swift */,
+				2FA7B24F2D86EBF500D847D8 /* PortfolioDeatilView.swift */,
 			);
 			path = Portfoilo;
 			sourceTree = "<group>";
@@ -750,6 +759,7 @@
 				2FE55C372D5F453300BFE6F7 /* InterestsVIewLayout.swift in Sources */,
 				2FE55C1F2D5E9BBF00BFE6F7 /* ProfileViewLayout.swift in Sources */,
 				2F1B24BE2D0B985B00EB96B2 /* LoginAnimation.swift in Sources */,
+				2FA7B24E2D86E9DC00D847D8 /* PortfolioDetailViewModel.swift in Sources */,
 				2F8800132D30611500220F89 /* DefaultAPIClient.swift in Sources */,
 				2F1B24E32D0C447500EB96B2 /* APIClient.swift in Sources */,
 				2F8800422D31052F00220F89 /* CodeVerificationViewController.swift in Sources */,
@@ -779,6 +789,7 @@
 				2F1B24A22D0B8D4300EB96B2 /* DIContainer.swift in Sources */,
 				2F1B24D32D0C28D200EB96B2 /* CustomTabBar.swift in Sources */,
 				2F36719C2D3CAF250048D9AD /* Logger.swift in Sources */,
+				2FA7B2502D86EBF500D847D8 /* PortfolioDeatilView.swift in Sources */,
 				2F4646A72D6DB9A000603332 /* PortfolioViewController.swift in Sources */,
 				2F8800542D31705700220F89 /* UIButton+.swift in Sources */,
 				2F1B24DB2D0C442300EB96B2 /* Artwork.swift in Sources */,
@@ -792,6 +803,7 @@
 				2FE55C2F2D5F431500BFE6F7 /* Category.swift in Sources */,
 				2FE55C1B2D5E929F00BFE6F7 /* ProfileViewModel.swift in Sources */,
 				2F8800102D305E4B00220F89 /* LoginViewController.swift in Sources */,
+				2FA7B24C2D86E82100D847D8 /* PortfolioDetailViewController.swift in Sources */,
 				2FD3F64B2D5CD2CD00DD9426 /* SignupModel.swift in Sources */,
 				2F1B24D62D0C3F3700EB96B2 /* UIImage+.swift in Sources */,
 				2F10D5492D6C889F0036668C /* SubCategoryCell.swift in Sources */,
